@@ -1,0 +1,16 @@
+<div class="hero-unit">
+  <h1>Welcome to The Secret</h1>
+  <% if current_user %>
+    <p>You've discovered the secret!</p>
+  <% else %>
+    <p>Please signin or signup to discover who killed the cat.</p>
+    <p>
+      <a class="btn btn-primary btn-large" href="<%= new_session_path %>">
+        Signin
+      </a>
+      <a class="btn btn-primary btn-large" href="<%= new_user_path %>">
+        Signup
+      </a>
+    </p>
+  <% end %>
+</div>

@@ -1,0 +1,19 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "bootstrap";
+
+.icon-facebook {
+  background-position: 0 0;
+  background-image: image-url("facebook.png");
+}
+
+.icon-twitter {
+  background-position: 0 0;
+  background-image: image-url("twitter.png");
+}
+
+.icon-github {
+  background-position: 0 0;
+  background-image: image-url("github.png");
+}

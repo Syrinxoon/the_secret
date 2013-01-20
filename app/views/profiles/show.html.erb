@@ -1,0 +1,45 @@
+<h2>Social Networks</h2>
+<table class="table table-striped">
+  <% @user.authentications.each do |auth| %>
+  <tr id="<%= auth.provider %>">
+    <td>
+      <%= image_tag(auth.provider + '.png') %>
+      <%= auth.provider.titleize %>
+    </td>
+    <td><%= link_to 'Remove', authentication_path(auth), method: :delete %></td>
+  </tr>
+  <% end %>
+</table>
+<p>
+  <%= link_to content_tag(:i, "", class: 'icon-twitter') + " Add Twitter", "/auth/twitter", class: 'btn', id: 'twitter-button' %>
+  <%= link_to content_tag(:i, "", class: 'icon-facebook') + " Add Facebook", "/auth/facebook", class: 'btn', id: 'facebook-button' %>
+  <%= link_to content_tag(:i, "", class: 'icon-github') + " Add Github", "/auth/github", class: 'btn', id: 'github-button' %>
+</p>
+
+<h2>Change your Password</h2>
+
+<%= form_tag profile_path, method: :put, class: 'form-horizontal' do %>
+  <fieldset>        
+    <div class="control-group">
+      <%= label_tag :user_password, 'Password', class: 'control-label' %>
+      <div class="controls">
+        <%= password_field_tag 'user[password]', '', placeholder: 'Your Password' %>
+      </div>
+    </div>
+    
+    <div class="control-group">
+      <%= label_tag :user_password_confirmation, 'Password Confirmation', class: 'control-label' %>
+      <div class="controls">
+        <%= password_field_tag 'user[password_confirmation]', '', placeholder: 'Password Confirmation' %>
+      </div>
+    </div>
+    
+    <div class="form-actions">
+      <%= submit_tag 'Update', class: 'btn btn-primary' %>
+    </div>
+  </fieldset>
+<% end %>
+
+<h2>Delete your Account</h2>
+
+<%= link_to 'Delete My Account', profile_path, method: :delete, class: 'btn btn-danger', confirm: 'Are you sure you want to delete your account?' %>

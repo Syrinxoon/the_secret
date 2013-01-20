@@ -1,0 +1,23 @@
+<h2>They Know The Secret</h2>
+  
+<table class="table stable-striped">
+  <thead>
+    <tr>
+      <th>Username</th>
+      <th>Networks</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.username %></td>
+        <td>
+          <% user.authentications.each do |auth| %>
+            <%= image_tag auth.provider + '.png' %>
+            &nbsp;
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
